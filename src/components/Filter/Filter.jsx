@@ -4,8 +4,8 @@ import { FilterBox, Label, Input } from './Filter.styled';
 export const Filter = props => {
   let filter;
 
-  const handleChange = evt => {
-    filter = evt.currentTarget.value;
+  const handleChange = event => {
+    filter = event.currentTarget.value;
 
     props.onChange(filter);
   };
@@ -18,7 +18,6 @@ export const Filter = props => {
   );
 };
 
-// export default Filter;
 
 Filter.propTypes = {
   props: PropTypes.shape({

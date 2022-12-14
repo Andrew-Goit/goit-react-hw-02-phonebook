@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {Form} from './Form/Form';
 import {Filter} from './Filter/Filter';
 import {Contacts} from './Contacts/Contacts';
+import { AppBox } from './App.styled';
 
 export class App extends Component {
   constructor() {
@@ -41,7 +42,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
+      <AppBox>
         <h2>Phonebook</h2>
         <Form onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
@@ -51,7 +52,7 @@ export class App extends Component {
           data={this.state.contacts}
           filter={this.state.filter}
         />
-      </div>
+      </AppBox>
     );
   }
 }

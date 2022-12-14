@@ -13,14 +13,14 @@ export class Form extends Component {
     this.i = 1;
   }
 
-  handleChange = evt => {
-    const { name, value } = evt.currentTarget;
+  handleChange = event => {
+    const { name, value } = event.currentTarget;
     this.setState({ [name]: value });
     console.log(value);
   };
 
-  handleSubmit = evt => {
-    evt.preventDefault();
+  handleSubmit = event => {
+    event.preventDefault();
     this.setState({ id: `id-${this.i + 1}` });
     this.props.onSubmit(this.state);
 
