@@ -20,7 +20,5 @@ export const Filter = props => {
 
 
 Filter.propTypes = {
-  props: PropTypes.shape({
-    onChange: PropTypes.func.isRequired,
-  }),
+  onChange: PropTypes.func.isRequired,
 };

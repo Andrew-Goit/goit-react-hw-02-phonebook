@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TheForm, Label, Input, SubmitBtn } from './Form.styled';
+import { FormBox, Label, Input, SubmitBtn } from './Form.styled';
 
 export class Form extends Component {
   constructor() {
@@ -10,18 +10,18 @@ export class Form extends Component {
       name: '',
       number: '',
     };
-    this.i = 1;
+    this.idx = 1;
   }
 
   handleChange = event => {
     const { name, value } = event.currentTarget;
     this.setState({ [name]: value });
-    console.log(value);
+    // console.log(value);
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    this.setState({ id: `id-${this.i + 1}` });
+    this.setState({ id: `id-${this.idx + 1}` });
     this.props.onSubmit(this.state);
 
     this.resetForm();
@@ -33,7 +33,7 @@ export class Form extends Component {
 
   render() {
     return (
-      <TheForm action="" onSubmit={this.handleSubmit}>
+      <FormBox action="" onSubmit={this.handleSubmit}>
         <Label htmlFor="name">Name</Label>
         <Input
           id="name"
@@ -59,7 +59,7 @@ export class Form extends Component {
         />
 
         <SubmitBtn type="submit">Add contact</SubmitBtn>
-      </TheForm>
+      </FormBox>
     );
   }
 }

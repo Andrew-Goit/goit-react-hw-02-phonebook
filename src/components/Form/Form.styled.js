@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TheForm = styled.form`
+export const FormBox = styled.form`
   width: auto;
   margin-top: 10px;
   margin-bottom: 20px;

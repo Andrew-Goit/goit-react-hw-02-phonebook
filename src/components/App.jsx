@@ -5,6 +5,7 @@ import {Filter} from './Filter/Filter';
 import {Contacts} from './Contacts/Contacts';
 import { AppBox } from './App.styled';
 
+
 export class App extends Component {
   constructor() {
     super();
@@ -19,12 +20,12 @@ export class App extends Component {
     };
   }
 
-  formSubmitHandler = data => {
-    this.state.contacts.map(el => {
-      if (el.name.toLowerCase() === data.name.toLowerCase()) {
+  formHandlerSubmit = data => {
+    this.state.contacts.map(element => {
+      if (element.name.toLowerCase() === data.name.toLowerCase()) {
         alert(`${data.name} is already in contacts.`);
       }
-      return el.name;
+      return element.name;
     });
     this.setState({ contacts: [...this.state.contacts, data] });
   };
@@ -36,7 +37,7 @@ export class App extends Component {
   handleClickDelete = data => {
     console.log(data);
     this.setState({
-      contacts: this.state.contacts.filter(el => el.id !== data),
+      contacts: this.state.contacts.filter(element => element.id !== data),
     });
   };
 
@@ -44,7 +45,7 @@ export class App extends Component {
     return (
       <AppBox>
         <h2>Phonebook</h2>
-        <Form onSubmit={this.formSubmitHandler} />
+        <Form onSubmit={this.formHandlerSubmit} />
         <h2>Contacts</h2>
         <Filter onChange={this.handleChangeFilter} />
         <Contacts

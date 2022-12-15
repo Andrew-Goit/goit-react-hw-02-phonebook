@@ -9,24 +9,26 @@ import {
 
 export const Contacts = props => {
   const { data, filter } = props;
-  let filterData = data.filter(el => {
-    return el.name.toLowerCase().includes(filter);
+  let filterData = data.filter(element => {
+    return element.name.toLowerCase().includes(filter);
   });
 
-  const handleOnClick = evt => {
-    props.onDelete(evt.currentTarget.id);
+  const onHandleClick = event => {
+    props.onDelete(event.currentTarget.id);
   };
 
-  if (!filterData.length) return;
+  if (!filterData.length) 
+    return;
+
   return (
     <ContactList>
-      {filterData.map(el => {
-        const { name, number, id } = el;
+      {filterData.map(element => {
+        const { name, number, id } = element;
         return (
           <ContactListItem key={id}>
             <ContactName>{name}</ContactName>
             <ContactNumber>{number}</ContactNumber>
-            <DeleteButton id={id} type="button" onClick={handleOnClick}>
+            <DeleteButton id={id} type="button" onClick={onHandleClick}>
               Delete
             </DeleteButton>
           </ContactListItem>
@@ -36,7 +38,6 @@ export const Contacts = props => {
   );
 };
 
-// export default Contacts;
 
 Contacts.propTypes = {
   props: PropTypes.shape({
